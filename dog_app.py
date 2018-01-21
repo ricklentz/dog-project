@@ -653,13 +653,13 @@ model = Sequential()
 ### Define architecture
 img_width, img_height = 512, 512
 
-model.add(Conv2D(filters=32, kernel_size=(3,3), input_shape=(img_width, img_height, 3), activation='selu'))
+model.add(Conv2D(filters=32, kernel_size=(3,3), input_shape=(img_width, img_height, 3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(3, 3), padding='same', strides=(2,2)))
 
-model.add(Conv2D(16, kernel_size=(3,3), activation='selu'))
+model.add(Conv2D(16, kernel_size=(3,3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(3, 3), padding='same', strides=(2,2)))
 
-model.add(Conv2D(16, kernel_size=(3,3), activation='selu'))
+model.add(Conv2D(16, kernel_size=(3,3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(3, 3), padding='same', strides=(2,2)))
 # padding valid?
 
@@ -667,18 +667,18 @@ model.add(MaxPooling2D(pool_size=(3, 3), padding='same', strides=(2,2)))
 #model.add(Conv2D(filters=32, kernel_size=(2,2), activation='relu'))
 #model.add(MaxPooling2D(pool_size=(2, 2), padding='same', strides=(1,1) ))
 
-#model.add(GlobalAveragePooling2D())
+model.add(GlobalAveragePooling2D())
 #model.add(GlobalMaxPooling2D())
 # activations selu, softmax, elu, softplus, tanh, sigmoid, relu, softsign
 #model.add(Dropout(0.2))
-model.add(Flatten())
+#model.add(Flatten())
 
-model.add(Dense(320, activation='selu'))
+model.add(Dense(320, activation='relu'))
 #model.add(Dropout(0.2))
 
 #model.add(Dense(128, activation='relu'))
 
-model.add(Dense(32, activation='selu'))
+model.add(Dense(32, activation='relu'))
 #model.add(Dropout(0.5))
 
 
