@@ -667,11 +667,11 @@ model.add(MaxPooling2D(pool_size=(3, 3), padding='same', strides=(2,2)))
 #model.add(Conv2D(filters=32, kernel_size=(2,2), activation='relu'))
 #model.add(MaxPooling2D(pool_size=(2, 2), padding='same', strides=(1,1) ))
 
-model.add(GlobalAveragePooling2D())
+#model.add(GlobalAveragePooling2D())
 #model.add(GlobalMaxPooling2D())
 # activations selu, softmax, elu, softplus, tanh, sigmoid, relu, softsign
 #model.add(Dropout(0.2))
-#model.add(Flatten())
+model.add(Flatten())
 
 model.add(Dense(320, activation='relu'))
 #model.add(Dropout(0.2))
@@ -796,7 +796,7 @@ checkpointer = ModelCheckpoint(
 
 # training params
 batch_size = 20
-epochs = 300
+epochs = 12
 
 parallel_model = multi_gpu_model(model, gpus=2)
 
